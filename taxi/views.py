@@ -56,6 +56,7 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
             return queryset.filter(name__icontains=name)
         return queryset
 
+
 class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
     model = Manufacturer
     fields = "__all__"
@@ -92,6 +93,7 @@ class CarListView(LoginRequiredMixin, generic.ListView):
             return queryset.filter(model__icontains=model)
         return queryset
 
+
 class CarDetailView(LoginRequiredMixin, generic.DetailView):
     model = Car
 
@@ -118,7 +120,7 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
 
     def get_context_data(
-        self, *, object_list = None, **kwargs
+        self, *, object_list=None, **kwargs
     ):
         context = super(DriverListView, self).get_context_data(**kwargs)
 
@@ -131,6 +133,7 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
         if username:
             return queryset.filter(username__icontains=username)
         return queryset
+
 
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver

@@ -22,7 +22,6 @@ class TestViews(TestCase):
 
         self.client.login(username="test_driver", password="test123")
 
-    # list
     def test_manufacturer_list_view_connection(self):
         url = reverse("taxi:manufacturer-list")
         res = self.client.get(url)
@@ -38,7 +37,6 @@ class TestViews(TestCase):
         res = self.client.get(url)
         self.assertEqual(res.status_code, 200)
 
-    # detail
     def test_car_list_detail_connection(self):
         url = reverse("taxi:car-detail", args=[self.car.id])
         res = self.client.get(url)
@@ -49,7 +47,6 @@ class TestViews(TestCase):
         res = self.client.get(url)
         self.assertEqual(res.status_code, 200)
 
-    # create
     def test_manufacturer_create_connection(self):
         url = reverse("taxi:manufacturer-create")
         res = self.client.get(url)
@@ -65,7 +62,6 @@ class TestViews(TestCase):
         res = self.client.get(url)
         self.assertEqual(res.status_code, 200)
 
-    #update
     def test_manufacturer_update_connection(self):
         url = reverse("taxi:manufacturer-update", args=[self.manufacturer.id])
         res = self.client.get(url)
@@ -81,7 +77,6 @@ class TestViews(TestCase):
         res = self.client.get(url)
         self.assertEqual(res.status_code, 200)
 
-    #delete
     def test_manufacturer_delete_connection(self):
         url = reverse("taxi:manufacturer-delete", args=[self.manufacturer.id])
         res = self.client.get(url)
